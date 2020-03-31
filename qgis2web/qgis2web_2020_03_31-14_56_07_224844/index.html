@@ -16,30 +16,10 @@
             padding: 0;
             margin: 0;
         }
-        #map {
-            margin-top: 55px;
-        }
-        .header {
-            background-color: #000000;
-            position: fixed; /* Set the navbar to fixed position */
-            top: 0; /* Position the navbar at the top of the page */
-            width: 100%; /* Full width */
-        }
-        #geosampa-logo {
-            margin: 5px;
-        }
         </style>
         <title></title>
     </head>
     <body>
-        <div class="header">
-            <a href="http://geosampa.prefeitura.sp.gov.br" target="_blank">
-                <img src="custom/images/geosampa_header.png" id="geosampa-logo"/>
-            </a>
-            <a href="https://github.com/geoinfo-smdu/operacao-covid">
-                <img src="custom/images/github-logo.png" id="geosampa-logo"/>
-            </a>
-        </div>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -258,16 +238,13 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">fid</th>\
-                        <td>' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">ct_nome</th>\
-                        <td>' + (feature.properties['ct_nome'] !== null ? Autolinker.link(feature.properties['ct_nome'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['ct_nome'] !== null ? Autolinker.link(feature.properties['ct_nome'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">ct_qt_pess</th>\
-                        <td>' + (feature.properties['ct_qt_pess'] !== null ? Autolinker.link(feature.properties['ct_qt_pess'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['ct_qt_pess'] !== null ? Autolinker.link(feature.properties['ct_qt_pess'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -320,20 +297,16 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">ID</th>\
-                        <td>' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Favela ID</th>\
-                        <td>' + (feature.properties['fv_id'] !== null ? Autolinker.link(feature.properties['fv_id'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['fv_id'] !== null ? Autolinker.link(feature.properties['fv_id'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Nome</th>\
-                        <td>' + (feature.properties['fv_nome'] !== null ? Autolinker.link(feature.properties['fv_nome'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['fv_nome'] !== null ? Autolinker.link(feature.properties['fv_nome'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Domicilios</th>\
-                        <td>' + (feature.properties['fv_domicil'] !== null ? Autolinker.link(feature.properties['fv_domicil'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['fv_domicil'] !== null ? Autolinker.link(feature.properties['fv_domicil'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
