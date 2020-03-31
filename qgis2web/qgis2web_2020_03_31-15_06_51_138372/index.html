@@ -16,30 +16,10 @@
             padding: 0;
             margin: 0;
         }
-        #map {
-            margin-top: 55px;
-        }
-        .header {
-            background-color: #000000;
-            position: fixed; /* Set the navbar to fixed position */
-            top: 0; /* Position the navbar at the top of the page */
-            width: 100%; /* Full width */
-        }
-        #geosampa-logo {
-            margin: 5px;
-        }
         </style>
         <title></title>
     </head>
     <body>
-        <div class="header">
-            <a href="http://geosampa.prefeitura.sp.gov.br" target="_blank">
-                <img src="custom/images/geosampa_header.png" id="geosampa-logo"/>
-            </a>
-            <a href="https://github.com/geoinfo-smdu/operacao-covid">
-                <img src="custom/images/github-logo.png" id="geosampa-logo"/>
-            </a>
-        </div>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -258,15 +238,15 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">ID</th>\
+                        <th scope="row">fid</th>\
                         <td>' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Nome</th>\
+                        <th scope="row">ct_nome</th>\
                         <td>' + (feature.properties['ct_nome'] !== null ? Autolinker.link(feature.properties['ct_nome'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Pessoas</th>\
+                        <th scope="row">ct_qt_pess</th>\
                         <td>' + (feature.properties['ct_qt_pess'] !== null ? Autolinker.link(feature.properties['ct_qt_pess'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -285,7 +265,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(213,180,60,1.0)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_Cortios_3');
@@ -293,7 +273,7 @@
         map.getPane('pane_Cortios_3').style['mix-blend-mode'] = 'normal';
         var layer_Cortios_3 = new L.geoJson(json_Cortios_3, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_Cortios_3',
             layerName: 'layer_Cortios_3',
             pane: 'pane_Cortios_3',
@@ -324,11 +304,15 @@
                         <td>' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <th scope="row">Favela ID</th>\
+                        <td>' + (feature.properties['fv_id'] !== null ? Autolinker.link(feature.properties['fv_id'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">Nome</th>\
                         <td>' + (feature.properties['fv_nome'] !== null ? Autolinker.link(feature.properties['fv_nome'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Domicílios</th>\
+                        <th scope="row">Domicilios</th>\
                         <td>' + (feature.properties['fv_domicil'] !== null ? Autolinker.link(feature.properties['fv_domicil'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -347,7 +331,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(164,113,88,1.0)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_Favelas_4');
@@ -355,7 +339,7 @@
         map.getPane('pane_Favelas_4').style['mix-blend-mode'] = 'normal';
         var layer_Favelas_4 = new L.geoJson(json_Favelas_4, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_Favelas_4',
             layerName: 'layer_Favelas_4',
             pane: 'pane_Favelas_4',
@@ -655,6 +639,18 @@
         });
         bounds_group.addLayer(layer_Centrodedistribuio_7);
         map.addLayer(layer_Centrodedistribuio_7);
+        map.on("zoomend", function(e) {
+            if (map.getZoom() <= 19 && map.getZoom() >= 13) {
+                map.addLayer(layer_Favelas_4);
+            } else if (map.getZoom() > 19 || map.getZoom() < 13) {
+                map.removeLayer(layer_Favelas_4);
+            }
+        });
+            if (map.getZoom() <= 19 && map.getZoom() >= 13) {
+                map.addLayer(layer_Favelas_4);
+            } else if (map.getZoom() > 19 || map.getZoom() < 13) {
+                map.removeLayer(layer_Favelas_4);
+            }
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
