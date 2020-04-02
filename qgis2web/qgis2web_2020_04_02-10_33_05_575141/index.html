@@ -16,30 +16,10 @@
             padding: 0;
             margin: 0;
         }
-        #map {
-            margin-top: 55px;
-        }
-        .header {
-            background-color: #000000;
-            position: fixed; /* Set the navbar to fixed position */
-            top: 0; /* Position the navbar at the top of the page */
-            width: 100%; /* Full width */
-        }
-        #geosampa-logo {
-            margin: 5px;
-        }
         </style>
         <title></title>
     </head>
     <body>
-        <div class="header">
-            <a href="http://geosampa.prefeitura.sp.gov.br" target="_blank">
-                <img src="custom/images/geosampa_header.png" id="geosampa-logo"/>
-            </a>
-            <a href="https://github.com/geoinfo-smdu/operacao-covid">
-                <img src="custom/images/github-logo.png" id="geosampa-logo"/>
-            </a>
-        </div>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -250,16 +230,18 @@
         });
         layer_AreasUBS_3;
         map.addLayer(layer_AreasUBS_3);
-        var layer_FAvelas_4 = L.tileLayer('https://geosampa-tiles.s3-sa-east-1.amazonaws.com/favelas/{z}/{x}/{y}.png', {
-            opacity: 1.0,
+        var layer_favela_4 = L.WMS.layer("http://wms.geosampa.prefeitura.sp.gov.br/geoserver/geoportal/wms", "vw_wfs_favela", {
+            format: 'image/png',
+            uppercase: true,
+            transparent: true,
+            continuousWorld : true,
+            tiled: true,
+            info_format: 'text/html',
+            opacity: 1,
+            identify: false,
             attribution: '',
-            minZoom: 8,
-            maxZoom: 18,
-            minNativeZoom: 8,
-            maxNativeZoom: 18
         });
-        layer_FAvelas_4;
-        map.addLayer(layer_FAvelas_4);
+        map.addLayer(layer_favela_4);
         var layer_cortico_5 = L.WMS.layer("http://wms.geosampa.prefeitura.sp.gov.br/geoserver/geoportal/wms", "vw_wfs_cortico", {
             format: 'image/png',
             uppercase: true,
@@ -639,7 +621,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Centrodedistribuio_9.png" /> Centro de distribuição': layer_Centrodedistribuio_9,'<img src="legend/DoaoDriveThru_8.png" /> Doação DriveThru': layer_DoaoDriveThru_8,'<img src="legend/UBSCovidcentrooeste_7.png" /> UBS Covid centro-oeste': layer_UBSCovidcentrooeste_7,'<img src="legend/Ocupaes_6.png" /> Ocupações': layer_Ocupaes_6,"cortico": layer_cortico_5,"FAvelas": layer_FAvelas_4,"Areas UBS": layer_AreasUBS_3,'Famílias Vulneraveis<br /><table><tr><td style="text-align: center;"><img src="legend/FamliasVulneraveis_2_462910.png" /></td><td>46 - 291</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulneraveis_2_2915211.png" /></td><td>291 - 521</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulneraveis_2_52112702.png" /></td><td>521 - 1270</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulneraveis_2_127026893.png" /></td><td>1270 - 2689</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulneraveis_2_268981944.png" /></td><td>2689 - 8194</td></tr></table>': layer_FamliasVulneraveis_2,"MapaBase Político": layer_MapaBasePoltico_1,"Municípios da RMSP (Região Metropolitana de São Paulo)": layer_MunicpiosdaRMSPRegioMetropolitanadeSoPaulo_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Centrodedistribuio_9.png" /> Centro de distribuição': layer_Centrodedistribuio_9,'<img src="legend/DoaoDriveThru_8.png" /> Doação DriveThru': layer_DoaoDriveThru_8,'<img src="legend/UBSCovidcentrooeste_7.png" /> UBS Covid centro-oeste': layer_UBSCovidcentrooeste_7,'<img src="legend/Ocupaes_6.png" /> Ocupações': layer_Ocupaes_6,"cortico": layer_cortico_5,"favela": layer_favela_4,"Areas UBS": layer_AreasUBS_3,'Famílias Vulneraveis<br /><table><tr><td style="text-align: center;"><img src="legend/FamliasVulneraveis_2_462910.png" /></td><td>46 - 291</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulneraveis_2_2915211.png" /></td><td>291 - 521</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulneraveis_2_52112702.png" /></td><td>521 - 1270</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulneraveis_2_127026893.png" /></td><td>1270 - 2689</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulneraveis_2_268981944.png" /></td><td>2689 - 8194</td></tr></table>': layer_FamliasVulneraveis_2,"MapaBase Político": layer_MapaBasePoltico_1,"Municípios da RMSP (Região Metropolitana de São Paulo)": layer_MunicpiosdaRMSPRegioMetropolitanadeSoPaulo_0,}).addTo(map);
         setBounds();
         </script>
     </body>
