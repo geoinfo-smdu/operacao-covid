@@ -1,0 +1,15 @@
+var json_DoaoDriveThru_7 = {
+"type": "FeatureCollection",
+"name": "DoaoDriveThru_7",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "eq_nome": "MARIO DE ANDRADE", "eq_enderec": "R DA CONSOLAÇÃO, 94", "eq_telefon": "3241-3459", "eq_bairro": "CONSOLAÇÃO", "eq_distr": "REPUBLICA", "eq_subpref": "SE", "eq_regiao5": "CENTRO", "FUNCAO": "DOAÇÃO - DRIVE THRU" }, "geometry": { "type": "Point", "coordinates": [ -46.642039455927645, -23.547231369788392 ] } },
+{ "type": "Feature", "properties": { "eq_nome": "CASA DE CULTURA DO BUTANTÃ", "eq_enderec": "R JUNTA MIZUMOTO, 13", "eq_telefon": "3742-6218", "eq_bairro": "JARDIM PERI-PERI", "eq_distr": "BUTANTA", "eq_subpref": "BUTANTA", "eq_regiao5": "OESTE", "FUNCAO": "DOAÇÃO - DRIVE THRU" }, "geometry": { "type": "Point", "coordinates": [ -46.732795978223322, -23.587022914808607 ] } },
+{ "type": "Feature", "properties": { "eq_nome": "TEATRO ARTHUR AZEVEDO", "eq_enderec": "AV PAES DE BARROS, 955", "eq_telefon": "2605-8007", "eq_bairro": "MOOCA", "eq_distr": "MOOCA", "eq_subpref": "MOOCA", "eq_regiao5": "LESTE", "FUNCAO": "DOAÇÃO - DRIVE THRU" }, "geometry": { "type": "Point", "coordinates": [ -46.596878151587177, -23.5632035971168 ] } },
+{ "type": "Feature", "properties": { "eq_nome": "CENTRO CULTURAL SÃO PAULO", "eq_enderec": "R VERGUEIRO, 1.000", "eq_telefon": "3397-4002", "eq_bairro": "PARAÍSO", "eq_distr": "LIBERDADE", "eq_subpref": "SE", "eq_regiao5": "CENTRO", "FUNCAO": "DOAÇÃO - DRIVE THRU" }, "geometry": { "type": "Point", "coordinates": [ -46.640272565472401, -23.570343481302338 ] } },
+{ "type": "Feature", "properties": { "eq_nome": "CENTRO CULTURAL DE SANTO AMARO", "eq_enderec": "PC FRANCISCO FERREIRA LOPES, 434", "eq_telefon": "5522-8897", "eq_bairro": "SANTO AMARO", "eq_distr": "SANTO AMARO", "eq_subpref": "SANTO AMARO", "eq_regiao5": "SUL", "FUNCAO": "DOAÇÃO - DRIVE THRU" }, "geometry": { "type": "Point", "coordinates": [ -46.708565374801182, -23.646432637039428 ] } },
+{ "type": "Feature", "properties": { "eq_nome": "TENDAL DA LAPA", "eq_enderec": "R GUAICURUS, 1.100", "eq_telefon": "3862-1837", "eq_bairro": "LAPA", "eq_distr": "LAPA", "eq_subpref": "LAPA", "eq_regiao5": "OESTE", "FUNCAO": "DOAÇÃO - DRIVE THRU" }, "geometry": { "type": "Point", "coordinates": [ -46.696147823889788, -23.522289115604469 ] } },
+{ "type": "Feature", "properties": { "eq_nome": "CASA DE CULTURA VILA GUILHERME - CASARÃO", "eq_enderec": "PCA OSCAR DA SILVA, 110", "eq_telefon": null, "eq_bairro": null, "eq_distr": "VILA GUILHERME", "eq_subpref": "VILA MARIA \/ VILA GUILHERME", "eq_regiao5": null, "FUNCAO": "DOAÇÃO - DRIVE THRU" }, "geometry": { "type": "Point", "coordinates": [ -46.600583312052656, -23.50763393155626 ] } },
+{ "type": "Feature", "properties": { "eq_nome": "CENTRO CULTURAL DA DIVERSIDADE", "eq_enderec": "R LOPES NETO, 206", "eq_telefon": null, "eq_bairro": null, "eq_distr": "ITAIM BIBI", "eq_subpref": "PINHEIROS", "eq_regiao5": null, "FUNCAO": "DOAÇÃO - DRIVE THRU" }, "geometry": { "type": "Point", "coordinates": [ -46.68360441353289, -23.587174810922878 ] } }
+]
+}
