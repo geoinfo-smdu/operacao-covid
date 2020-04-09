@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="data/FamliasVulnerveis_1.js"></script>
+        <script src="data/Ocupaes_4.js"></script>
+        <script src="data/UBSCovid_5.js"></script>
+        <script src="data/EntidadesParceiras_6.js"></script>
+        <script src="data/DoaoDriveThru_7.js"></script>
+        <script src="data/Centrodedistribuio_8.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:18, minZoom:8
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+        }
+        var layer_OpenStreetMap_0 = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 8,
+            maxZoom: 18,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OpenStreetMap_0;
+        map.addLayer(layer_OpenStreetMap_0);
+        function pop_FamliasVulnerveis_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID</th>\
+                        <td>' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Codigo</th>\
+                        <td>' + (feature.properties['ds_codigo'] !== null ? Autolinker.link(feature.properties['ds_codigo'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nome</th>\
+                        <td>' + (feature.properties['ds_nome'] !== null ? Autolinker.link(feature.properties['ds_nome'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FAMILIAS'] !== null ? Autolinker.link(feature.properties['FAMILIAS'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_FamliasVulnerveis_1_0(feature) {
+            if (feature.properties['FAMILIAS'] >= 0.000000 && feature.properties['FAMILIAS'] <= 806.600000 ) {
+                return {
+                pane: 'pane_FamliasVulnerveis_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,245,240,0.335)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['FAMILIAS'] >= 806.600000 && feature.properties['FAMILIAS'] <= 1844.200000 ) {
+                return {
+                pane: 'pane_FamliasVulnerveis_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,190,165,0.335)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['FAMILIAS'] >= 1844.200000 && feature.properties['FAMILIAS'] <= 3530.400000 ) {
+                return {
+                pane: 'pane_FamliasVulnerveis_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,112,80,0.335)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['FAMILIAS'] >= 3530.400000 && feature.properties['FAMILIAS'] <= 8269.800000 ) {
+                return {
+                pane: 'pane_FamliasVulnerveis_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(212,32,32,0.335)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['FAMILIAS'] >= 8269.800000 && feature.properties['FAMILIAS'] <= 39032.000000 ) {
+                return {
+                pane: 'pane_FamliasVulnerveis_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(103,0,13,0.335)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_FamliasVulnerveis_1');
+        map.getPane('pane_FamliasVulnerveis_1').style.zIndex = 401;
+        map.getPane('pane_FamliasVulnerveis_1').style['mix-blend-mode'] = 'normal';
+        var layer_FamliasVulnerveis_1 = new L.geoJson(json_FamliasVulnerveis_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_FamliasVulnerveis_1',
+            layerName: 'layer_FamliasVulnerveis_1',
+            pane: 'pane_FamliasVulnerveis_1',
+            onEachFeature: pop_FamliasVulnerveis_1,
+            style: style_FamliasVulnerveis_1_0,
+        });
+        bounds_group.addLayer(layer_FamliasVulnerveis_1);
+        map.addLayer(layer_FamliasVulnerveis_1);
+        var layer_Favelas_2 = L.tileLayer('https://geosampa-tiles.s3-sa-east-1.amazonaws.com/favelas/{z}/{x}/{y}.png', {
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 8,
+            maxZoom: 18,
+            minNativeZoom: 8,
+            maxNativeZoom: 18
+        });
+        layer_Favelas_2;
+        map.addLayer(layer_Favelas_2);
+        var layer_Corticos_3 = L.tileLayer('https://geosampa-tiles.s3-sa-east-1.amazonaws.com/corticos/{z}/{x}/{y}.png', {
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 8,
+            maxZoom: 18,
+            minNativeZoom: 8,
+            maxNativeZoom: 18
+        });
+        layer_Corticos_3;
+        map.addLayer(layer_Corticos_3);
+        function pop_Ocupaes_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID</th>\
+                        <td>' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Endereço</th>\
+                        <td>' + (feature.properties['endereco'] !== null ? Autolinker.link(feature.properties['endereco'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Famílias</th>\
+                        <td>' + (feature.properties['N_FAMILIAS'] !== null ? Autolinker.link(feature.properties['N_FAMILIAS'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Ocupaes_4_0() {
+            return {
+                pane: 'pane_Ocupaes_4',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/apartment-3.svg',
+            iconSize: [38.0, 38.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Ocupaes_4');
+        map.getPane('pane_Ocupaes_4').style.zIndex = 404;
+        map.getPane('pane_Ocupaes_4').style['mix-blend-mode'] = 'normal';
+        var layer_Ocupaes_4 = new L.geoJson(json_Ocupaes_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Ocupaes_4',
+            layerName: 'layer_Ocupaes_4',
+            pane: 'pane_Ocupaes_4',
+            onEachFeature: pop_Ocupaes_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Ocupaes_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Ocupaes_4);
+        map.addLayer(layer_Ocupaes_4);
+        function pop_UBSCovid_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Cnes</th>\
+                        <td>' + (feature.properties['eq_cnes'] !== null ? Autolinker.link(feature.properties['eq_cnes'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Endereço</th>\
+                        <td>' + (feature.properties['eq_enderec'] !== null ? Autolinker.link(feature.properties['eq_enderec'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nome</th>\
+                        <td>' + (feature.properties['eq_nome'] !== null ? Autolinker.link(feature.properties['eq_nome'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bairro</th>\
+                        <td>' + (feature.properties['eq_bairro'] !== null ? Autolinker.link(feature.properties['eq_bairro'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CEP</th>\
+                        <td>' + (feature.properties['eq_cep'] !== null ? Autolinker.link(feature.properties['eq_cep'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distrito</th>\
+                        <td>' + (feature.properties['eq_distr'] !== null ? Autolinker.link(feature.properties['eq_distr'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Subprefeitura</th>\
+                        <td>' + (feature.properties['eq_subpref'] !== null ? Autolinker.link(feature.properties['eq_subpref'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Região 5</th>\
+                        <td>' + (feature.properties['eq_regiao5'] !== null ? Autolinker.link(feature.properties['eq_regiao5'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Telefone</th>\
+                        <td>' + (feature.properties['eq_telefon'] !== null ? Autolinker.link(feature.properties['eq_telefon'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ID</th>\
+                        <td>' + (feature.properties['eq_id'] !== null ? Autolinker.link(feature.properties['eq_id'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Famílias</th>\
+                        <td>' + (feature.properties['FAMILIAS'] !== null ? Autolinker.link(feature.properties['FAMILIAS'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_UBSCovid_5_0() {
+            return {
+                pane: 'pane_UBSCovid_5',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/ubs.svg',
+            iconSize: [38.0, 38.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_UBSCovid_5');
+        map.getPane('pane_UBSCovid_5').style.zIndex = 405;
+        map.getPane('pane_UBSCovid_5').style['mix-blend-mode'] = 'normal';
+        var layer_UBSCovid_5 = new L.geoJson(json_UBSCovid_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_UBSCovid_5',
+            layerName: 'layer_UBSCovid_5',
+            pane: 'pane_UBSCovid_5',
+            onEachFeature: pop_UBSCovid_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_UBSCovid_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_UBSCovid_5);
+        map.addLayer(layer_UBSCovid_5);
+        function pop_EntidadesParceiras_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID</th>\
+                        <td>' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nome</th>\
+                        <td>' + (feature.properties['Name'] !== null ? Autolinker.link(feature.properties['Name'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Descrição</th>\
+                        <td>' + (feature.properties['description'] !== null ? Autolinker.link(feature.properties['description'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Iniciativa</th>\
+                        <td>' + (feature.properties['Iniciativa_Campanha'] !== null ? Autolinker.link(feature.properties['Iniciativa_Campanha'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Contato</th>\
+                        <td>' + (feature.properties['contato'] !== null ? Autolinker.link(feature.properties['contato'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Telefone</th>\
+                        <td>' + (feature.properties['telefone'] !== null ? Autolinker.link(feature.properties['telefone'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Logradouro</th>\
+                        <td>' + (feature.properties['logradouro'] !== null ? Autolinker.link(feature.properties['logradouro'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Número</th>\
+                        <td>' + (feature.properties['n__mero'] !== null ? Autolinker.link(feature.properties['n__mero'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bairro</th>\
+                        <td>' + (feature.properties['bairro'] !== null ? Autolinker.link(feature.properties['bairro'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['distrito'] !== null ? Autolinker.link(feature.properties['distrito'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['cidade'] !== null ? Autolinker.link(feature.properties['cidade'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_EntidadesParceiras_6_0() {
+            return {
+                pane: 'pane_EntidadesParceiras_6',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/parceiros.svg',
+            iconSize: [38.0, 38.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_EntidadesParceiras_6');
+        map.getPane('pane_EntidadesParceiras_6').style.zIndex = 406;
+        map.getPane('pane_EntidadesParceiras_6').style['mix-blend-mode'] = 'normal';
+        var layer_EntidadesParceiras_6 = new L.geoJson(json_EntidadesParceiras_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_EntidadesParceiras_6',
+            layerName: 'layer_EntidadesParceiras_6',
+            pane: 'pane_EntidadesParceiras_6',
+            onEachFeature: pop_EntidadesParceiras_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_EntidadesParceiras_6_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_EntidadesParceiras_6);
+        map.addLayer(layer_EntidadesParceiras_6);
+        function pop_DoaoDriveThru_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Nome</th>\
+                        <td>' + (feature.properties['eq_nome'] !== null ? Autolinker.link(feature.properties['eq_nome'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Endereço</th>\
+                        <td>' + (feature.properties['eq_enderec'] !== null ? Autolinker.link(feature.properties['eq_enderec'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Telefone</th>\
+                        <td>' + (feature.properties['eq_telefon'] !== null ? Autolinker.link(feature.properties['eq_telefon'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bairro</th>\
+                        <td>' + (feature.properties['eq_bairro'] !== null ? Autolinker.link(feature.properties['eq_bairro'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distrito</th>\
+                        <td>' + (feature.properties['eq_distr'] !== null ? Autolinker.link(feature.properties['eq_distr'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Subprefeitura</th>\
+                        <td>' + (feature.properties['eq_subpref'] !== null ? Autolinker.link(feature.properties['eq_subpref'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Região 5</th>\
+                        <td>' + (feature.properties['eq_regiao5'] !== null ? Autolinker.link(feature.properties['eq_regiao5'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Função</th>\
+                        <td>' + (feature.properties['FUNCAO'] !== null ? Autolinker.link(feature.properties['FUNCAO'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_DoaoDriveThru_7_0() {
+            return {
+                pane: 'pane_DoaoDriveThru_7',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/icone-drive-spcs.png.svg',
+            iconSize: [38.0, 38.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_DoaoDriveThru_7');
+        map.getPane('pane_DoaoDriveThru_7').style.zIndex = 407;
+        map.getPane('pane_DoaoDriveThru_7').style['mix-blend-mode'] = 'normal';
+        var layer_DoaoDriveThru_7 = new L.geoJson(json_DoaoDriveThru_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_DoaoDriveThru_7',
+            layerName: 'layer_DoaoDriveThru_7',
+            pane: 'pane_DoaoDriveThru_7',
+            onEachFeature: pop_DoaoDriveThru_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_DoaoDriveThru_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_DoaoDriveThru_7);
+        map.addLayer(layer_DoaoDriveThru_7);
+        function pop_Centrodedistribuio_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID</th>\
+                        <td>' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tipo</th>\
+                        <td>' + (feature.properties['eq_tipo'] !== null ? Autolinker.link(feature.properties['eq_tipo'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nome</th>\
+                        <td>' + (feature.properties['eq_nome'] !== null ? Autolinker.link(feature.properties['eq_nome'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Endereço</th>\
+                        <td>' + (feature.properties['eq_enderec'] !== null ? Autolinker.link(feature.properties['eq_enderec'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Telefone</th>\
+                        <td>' + (feature.properties['eq_telefon'] !== null ? Autolinker.link(feature.properties['eq_telefon'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bairro</th>\
+                        <td>' + (feature.properties['eq_bairro'] !== null ? Autolinker.link(feature.properties['eq_bairro'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CEP</th>\
+                        <td>' + (feature.properties['eq_cep'] !== null ? Autolinker.link(feature.properties['eq_cep'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distrito</th>\
+                        <td>' + (feature.properties['eq_distr'] !== null ? Autolinker.link(feature.properties['eq_distr'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Subprefeitura</th>\
+                        <td>' + (feature.properties['eq_subpref'] !== null ? Autolinker.link(feature.properties['eq_subpref'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Região 5</th>\
+                        <td>' + (feature.properties['eq_regiao5'] !== null ? Autolinker.link(feature.properties['eq_regiao5'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Função</th>\
+                        <td>' + (feature.properties['FUNCAO'] !== null ? Autolinker.link(feature.properties['FUNCAO'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Centrodedistribuio_8_0() {
+            return {
+                pane: 'pane_Centrodedistribuio_8',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/icone-distribuicao.png.svg',
+            iconSize: [38.0, 38.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Centrodedistribuio_8');
+        map.getPane('pane_Centrodedistribuio_8').style.zIndex = 408;
+        map.getPane('pane_Centrodedistribuio_8').style['mix-blend-mode'] = 'normal';
+        var layer_Centrodedistribuio_8 = new L.geoJson(json_Centrodedistribuio_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Centrodedistribuio_8',
+            layerName: 'layer_Centrodedistribuio_8',
+            pane: 'pane_Centrodedistribuio_8',
+            onEachFeature: pop_Centrodedistribuio_8,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Centrodedistribuio_8_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Centrodedistribuio_8);
+        map.addLayer(layer_Centrodedistribuio_8);
+        var layer_AreasUBS_9 = L.tileLayer('https://geosampa-tiles.s3-sa-east-1.amazonaws.com/ubs-areas/{z}/{x}/{y}.png', {
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 8,
+            maxZoom: 18,
+            minNativeZoom: 8,
+            maxNativeZoom: 18
+        });
+        layer_AreasUBS_9;
+        map.addLayer(layer_AreasUBS_9);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
+        var baseMaps = {};
+        L.control.layers(baseMaps,{"Areas UBS": layer_AreasUBS_9,'<img src="legend/Centrodedistribuio_8.png" /> Centro de distribuição': layer_Centrodedistribuio_8,'<img src="legend/DoaoDriveThru_7.png" /> Doação DriveThru': layer_DoaoDriveThru_7,'<img src="legend/EntidadesParceiras_6.png" /> Entidades Parceiras': layer_EntidadesParceiras_6,'<img src="legend/UBSCovid_5.png" /> UBS-Covid': layer_UBSCovid_5,'<img src="legend/Ocupaes_4.png" /> Ocupações': layer_Ocupaes_4,"Corticos": layer_Corticos_3,"Favelas": layer_Favelas_2,'Famílias Vulneráveis<br /><table><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_08070.png" /></td><td>0 - 807</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_80718441.png" /></td><td>807 - 1844</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_184435302.png" /></td><td>1844 - 3530</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_353082703.png" /></td><td>3530 - 8270</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_8270390324.png" /></td><td>8270 - 39032</td></tr></table>': layer_FamliasVulnerveis_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>

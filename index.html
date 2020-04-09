@@ -28,14 +28,14 @@
         #geosampa-logo {
             margin: 5px;
         }
-      
+        
         </style>
         <title></title>
     </head>
     <body>
         <div class="header">
             <a href="http://geosampa.prefeitura.sp.gov.br" target="_blank">
-                <img src="custom/images/geosampa_header.png" id="geosampa-logo"/>
+                <img src="/custom/images/logo-cidade-solidaria-45.png" id="geosampa-logo"/>
             </a>
             <a href="https://github.com/geoinfo-smdu/operacao-covid">
                 <img src="custom/images/github-logo.png" id="geosampa-logo"/>
@@ -55,11 +55,12 @@
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="data/FamliasVulnerveis_1.js"></script>
         <script src="data/Ocupaes_4.js"></script>
-        <script src="data/DoaoDriveThru_5.js"></script>
-        <script src="data/UBSCovid_6.js"></script>
-        <script src="data/Centrodedistribuio_7.js"></script>
-        <script src="data/EntidadesParceiras_8.js"></script>
+        <script src="data/UBSCovid_5.js"></script>
+        <script src="data/EntidadesParceiras_6.js"></script>
+        <script src="data/DoaoDriveThru_7.js"></script>
+        <script src="data/Centrodedistribuio_8.js"></script>
         <script>
+
         L.TileLayer.Grayscale = L.TileLayer.extend({
             options: {
                 quotaRed: 21,
@@ -112,7 +113,6 @@
         L.tileLayer.grayscale = function (url, options) {
             return new L.TileLayer.Grayscale(url, options);
         };
-
 
         var map = L.map('map', {
             zoomControl:true, maxZoom:18, minZoom:8
@@ -318,77 +318,7 @@
         });
         bounds_group.addLayer(layer_Ocupaes_4);
         map.addLayer(layer_Ocupaes_4);
-        function pop_DoaoDriveThru_5(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Nome</th>\
-                        <td>' + (feature.properties['eq_nome'] !== null ? Autolinker.link(feature.properties['eq_nome'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Endereço</th>\
-                        <td>' + (feature.properties['eq_enderec'] !== null ? Autolinker.link(feature.properties['eq_enderec'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Telefone</th>\
-                        <td>' + (feature.properties['eq_telefon'] !== null ? Autolinker.link(feature.properties['eq_telefon'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Bairro</th>\
-                        <td>' + (feature.properties['eq_bairro'] !== null ? Autolinker.link(feature.properties['eq_bairro'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Distrito</th>\
-                        <td>' + (feature.properties['eq_distr'] !== null ? Autolinker.link(feature.properties['eq_distr'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Subprefeitura</th>\
-                        <td>' + (feature.properties['eq_subpref'] !== null ? Autolinker.link(feature.properties['eq_subpref'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Região 5</th>\
-                        <td>' + (feature.properties['eq_regiao5'] !== null ? Autolinker.link(feature.properties['eq_regiao5'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Função</th>\
-                        <td>' + (feature.properties['FUNCAO'] !== null ? Autolinker.link(feature.properties['FUNCAO'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_DoaoDriveThru_5_0() {
-            return {
-                pane: 'pane_DoaoDriveThru_5',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/doacao.svg',
-            iconSize: [38.0, 38.0]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane_DoaoDriveThru_5');
-        map.getPane('pane_DoaoDriveThru_5').style.zIndex = 405;
-        map.getPane('pane_DoaoDriveThru_5').style['mix-blend-mode'] = 'normal';
-        var layer_DoaoDriveThru_5 = new L.geoJson(json_DoaoDriveThru_5, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_DoaoDriveThru_5',
-            layerName: 'layer_DoaoDriveThru_5',
-            pane: 'pane_DoaoDriveThru_5',
-            onEachFeature: pop_DoaoDriveThru_5,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_DoaoDriveThru_5_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_DoaoDriveThru_5);
-        map.addLayer(layer_DoaoDriveThru_5);
-        function pop_UBSCovid_6(feature, layer) {
+        function pop_UBSCovid_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Cnes</th>\
@@ -438,9 +368,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_UBSCovid_6_0() {
+        function style_UBSCovid_5_0() {
             return {
-                pane: 'pane_UBSCovid_6',
+                pane: 'pane_UBSCovid_5',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
@@ -450,27 +380,177 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_UBSCovid_6');
-        map.getPane('pane_UBSCovid_6').style.zIndex = 406;
-        map.getPane('pane_UBSCovid_6').style['mix-blend-mode'] = 'normal';
-        var layer_UBSCovid_6 = new L.geoJson(json_UBSCovid_6, {
+        map.createPane('pane_UBSCovid_5');
+        map.getPane('pane_UBSCovid_5').style.zIndex = 405;
+        map.getPane('pane_UBSCovid_5').style['mix-blend-mode'] = 'normal';
+        var layer_UBSCovid_5 = new L.geoJson(json_UBSCovid_5, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_UBSCovid_6',
-            layerName: 'layer_UBSCovid_6',
-            pane: 'pane_UBSCovid_6',
-            onEachFeature: pop_UBSCovid_6,
+            dataVar: 'json_UBSCovid_5',
+            layerName: 'layer_UBSCovid_5',
+            pane: 'pane_UBSCovid_5',
+            onEachFeature: pop_UBSCovid_5,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_UBSCovid_6_0(feature));
+                return L.marker(latlng, style_UBSCovid_5_0(feature));
             },
         });
-        bounds_group.addLayer(layer_UBSCovid_6);
-        map.addLayer(layer_UBSCovid_6);
-        function pop_Centrodedistribuio_7(feature, layer) {
+        bounds_group.addLayer(layer_UBSCovid_5);
+        map.addLayer(layer_UBSCovid_5);
+        function pop_EntidadesParceiras_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID</th>\
+                        <td>' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nome</th>\
+                        <td>' + (feature.properties['Name'] !== null ? Autolinker.link(feature.properties['Name'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Descrição</th>\
+                        <td>' + (feature.properties['description'] !== null ? Autolinker.link(feature.properties['description'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Iniciativa</th>\
+                        <td>' + (feature.properties['Iniciativa_Campanha'] !== null ? Autolinker.link(feature.properties['Iniciativa_Campanha'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Contato</th>\
+                        <td>' + (feature.properties['contato'] !== null ? Autolinker.link(feature.properties['contato'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Telefone</th>\
+                        <td>' + (feature.properties['telefone'] !== null ? Autolinker.link(feature.properties['telefone'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Logradouro</th>\
+                        <td>' + (feature.properties['logradouro'] !== null ? Autolinker.link(feature.properties['logradouro'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Número</th>\
+                        <td>' + (feature.properties['n__mero'] !== null ? Autolinker.link(feature.properties['n__mero'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bairro</th>\
+                        <td>' + (feature.properties['bairro'] !== null ? Autolinker.link(feature.properties['bairro'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['distrito'] !== null ? Autolinker.link(feature.properties['distrito'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['cidade'] !== null ? Autolinker.link(feature.properties['cidade'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_EntidadesParceiras_6_0() {
+            return {
+                pane: 'pane_EntidadesParceiras_6',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/parceiros.svg',
+            iconSize: [38.0, 38.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_EntidadesParceiras_6');
+        map.getPane('pane_EntidadesParceiras_6').style.zIndex = 406;
+        map.getPane('pane_EntidadesParceiras_6').style['mix-blend-mode'] = 'normal';
+        var layer_EntidadesParceiras_6 = new L.geoJson(json_EntidadesParceiras_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_EntidadesParceiras_6',
+            layerName: 'layer_EntidadesParceiras_6',
+            pane: 'pane_EntidadesParceiras_6',
+            onEachFeature: pop_EntidadesParceiras_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_EntidadesParceiras_6_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_EntidadesParceiras_6);
+        map.addLayer(layer_EntidadesParceiras_6);
+        function pop_DoaoDriveThru_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Nome</th>\
+                        <td>' + (feature.properties['eq_nome'] !== null ? Autolinker.link(feature.properties['eq_nome'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Endereço</th>\
+                        <td>' + (feature.properties['eq_enderec'] !== null ? Autolinker.link(feature.properties['eq_enderec'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Telefone</th>\
+                        <td>' + (feature.properties['eq_telefon'] !== null ? Autolinker.link(feature.properties['eq_telefon'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bairro</th>\
+                        <td>' + (feature.properties['eq_bairro'] !== null ? Autolinker.link(feature.properties['eq_bairro'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distrito</th>\
+                        <td>' + (feature.properties['eq_distr'] !== null ? Autolinker.link(feature.properties['eq_distr'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Subprefeitura</th>\
+                        <td>' + (feature.properties['eq_subpref'] !== null ? Autolinker.link(feature.properties['eq_subpref'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Região 5</th>\
+                        <td>' + (feature.properties['eq_regiao5'] !== null ? Autolinker.link(feature.properties['eq_regiao5'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Função</th>\
+                        <td>' + (feature.properties['FUNCAO'] !== null ? Autolinker.link(feature.properties['FUNCAO'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_DoaoDriveThru_7_0() {
+            return {
+                pane: 'pane_DoaoDriveThru_7',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/icone-drive-spcs.png.svg',
+            iconSize: [38.0, 38.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_DoaoDriveThru_7');
+        map.getPane('pane_DoaoDriveThru_7').style.zIndex = 407;
+        map.getPane('pane_DoaoDriveThru_7').style['mix-blend-mode'] = 'normal';
+        var layer_DoaoDriveThru_7 = new L.geoJson(json_DoaoDriveThru_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_DoaoDriveThru_7',
+            layerName: 'layer_DoaoDriveThru_7',
+            pane: 'pane_DoaoDriveThru_7',
+            onEachFeature: pop_DoaoDriveThru_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_DoaoDriveThru_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_DoaoDriveThru_7);
+        map.addLayer(layer_DoaoDriveThru_7);
+        function pop_Centrodedistribuio_8(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">ID</th>\
@@ -520,118 +600,38 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Centrodedistribuio_7_0() {
+        function style_Centrodedistribuio_8_0() {
             return {
-                pane: 'pane_Centrodedistribuio_7',
+                pane: 'pane_Centrodedistribuio_8',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/logistica.svg',
+            iconUrl: 'markers/icone-distribuicao.png.svg',
             iconSize: [38.0, 38.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Centrodedistribuio_7');
-        map.getPane('pane_Centrodedistribuio_7').style.zIndex = 407;
-        map.getPane('pane_Centrodedistribuio_7').style['mix-blend-mode'] = 'normal';
-        var layer_Centrodedistribuio_7 = new L.geoJson(json_Centrodedistribuio_7, {
+        map.createPane('pane_Centrodedistribuio_8');
+        map.getPane('pane_Centrodedistribuio_8').style.zIndex = 408;
+        map.getPane('pane_Centrodedistribuio_8').style['mix-blend-mode'] = 'normal';
+        var layer_Centrodedistribuio_8 = new L.geoJson(json_Centrodedistribuio_8, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Centrodedistribuio_7',
-            layerName: 'layer_Centrodedistribuio_7',
-            pane: 'pane_Centrodedistribuio_7',
-            onEachFeature: pop_Centrodedistribuio_7,
+            dataVar: 'json_Centrodedistribuio_8',
+            layerName: 'layer_Centrodedistribuio_8',
+            pane: 'pane_Centrodedistribuio_8',
+            onEachFeature: pop_Centrodedistribuio_8,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Centrodedistribuio_7_0(feature));
+                return L.marker(latlng, style_Centrodedistribuio_8_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Centrodedistribuio_7);
-        map.addLayer(layer_Centrodedistribuio_7);
-        function pop_EntidadesParceiras_8(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">ID</th>\
-                        <td>' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Nome</th>\
-                        <td>' + (feature.properties['Name'] !== null ? Autolinker.link(feature.properties['Name'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Descrição</th>\
-                        <td>' + (feature.properties['description'] !== null ? Autolinker.link(feature.properties['description'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Iniciativa</th>\
-                        <td>' + (feature.properties['Iniciativa_Campanha'] !== null ? Autolinker.link(feature.properties['Iniciativa_Campanha'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Contato</th>\
-                        <td>' + (feature.properties['contato'] !== null ? Autolinker.link(feature.properties['contato'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Telefone</th>\
-                        <td>' + (feature.properties['telefone'] !== null ? Autolinker.link(feature.properties['telefone'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Logradouro</th>\
-                        <td>' + (feature.properties['logradouro'] !== null ? Autolinker.link(feature.properties['logradouro'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Número</th>\
-                        <td>' + (feature.properties['n__mero'] !== null ? Autolinker.link(feature.properties['n__mero'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Bairro</th>\
-                        <td>' + (feature.properties['bairro'] !== null ? Autolinker.link(feature.properties['bairro'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['distrito'] !== null ? Autolinker.link(feature.properties['distrito'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['cidade'] !== null ? Autolinker.link(feature.properties['cidade'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_EntidadesParceiras_8_0() {
-            return {
-                pane: 'pane_EntidadesParceiras_8',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/parceiros.svg',
-            iconSize: [38.0, 38.0]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane_EntidadesParceiras_8');
-        map.getPane('pane_EntidadesParceiras_8').style.zIndex = 408;
-        map.getPane('pane_EntidadesParceiras_8').style['mix-blend-mode'] = 'normal';
-        var layer_EntidadesParceiras_8 = new L.geoJson(json_EntidadesParceiras_8, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_EntidadesParceiras_8',
-            layerName: 'layer_EntidadesParceiras_8',
-            pane: 'pane_EntidadesParceiras_8',
-            onEachFeature: pop_EntidadesParceiras_8,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_EntidadesParceiras_8_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_EntidadesParceiras_8);
-        map.addLayer(layer_EntidadesParceiras_8);
+        bounds_group.addLayer(layer_Centrodedistribuio_8);
+        map.addLayer(layer_Centrodedistribuio_8);
         var layer_AreasUBS_9 = L.tileLayer('https://geosampa-tiles.s3-sa-east-1.amazonaws.com/ubs-areas/{z}/{x}/{y}.png', {
             opacity: 1.0,
             attribution: '',
@@ -653,7 +653,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{"Areas UBS": layer_AreasUBS_9,'<img src="legend/EntidadesParceiras_8.png" /> Entidades Parceiras': layer_EntidadesParceiras_8,'<img src="legend/Centrodedistribuio_7.png" /> Centro de distribuição': layer_Centrodedistribuio_7,'<img src="legend/UBSCovid_6.png" /> UBS-Covid': layer_UBSCovid_6,'<img src="legend/DoaoDriveThru_5.png" /> Doação DriveThru': layer_DoaoDriveThru_5,'<img src="legend/Ocupaes_4.png" /> Ocupações': layer_Ocupaes_4,"Corticos": layer_Corticos_3,"Favelas": layer_Favelas_2,'Famílias Vulneráveis<br /><table><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_08070.png" /></td><td>0 - 807</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_80718441.png" /></td><td>807 - 1844</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_184435302.png" /></td><td>1844 - 3530</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_353082703.png" /></td><td>3530 - 8270</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_8270390324.png" /></td><td>8270 - 39032</td></tr></table>': layer_FamliasVulnerveis_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
+        L.control.layers(baseMaps,{"Areas UBS": layer_AreasUBS_9,'<img src="legend/Centrodedistribuio_8.png" /> Centro de distribuição': layer_Centrodedistribuio_8,'<img src="legend/DoaoDriveThru_7.png" /> Doação DriveThru': layer_DoaoDriveThru_7,'<img src="legend/EntidadesParceiras_6.png" /> Entidades Parceiras': layer_EntidadesParceiras_6,'<img src="legend/UBSCovid_5.png" /> UBS-Covid': layer_UBSCovid_5,'<img src="legend/Ocupaes_4.png" /> Ocupações': layer_Ocupaes_4,"Corticos": layer_Corticos_3,"Favelas": layer_Favelas_2,'Famílias Vulneráveis<br /><table><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_08070.png" /></td><td>0 - 807</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_80718441.png" /></td><td>807 - 1844</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_184435302.png" /></td><td>1844 - 3530</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_353082703.png" /></td><td>3530 - 8270</td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveis_1_8270390324.png" /></td><td>8270 - 39032</td></tr></table>': layer_FamliasVulnerveis_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
         setBounds();
         </script>
     </body>
