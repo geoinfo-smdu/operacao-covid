@@ -62,8 +62,7 @@
         <script src="data/Centrodedistribuio_11.js"></script>
         <script>
 
-
-        L.TileLayer.Grayscale = L.TileLayer.extend({
+L.TileLayer.Grayscale = L.TileLayer.extend({
             options: {
                 quotaRed: 21,
                 quotaGreen: 71,
@@ -143,7 +142,7 @@
         function pop_FamliasVulnerveisporUBS_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">ID</th>\
+                        <th scope="row">fid</th>\
                         <td>' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -151,63 +150,101 @@
                         <td>' + (feature.properties['CNES'] !== null ? Autolinker.link(feature.properties['CNES'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Nome</th>\
-                        <td>' + (feature.properties['nome_UBS'] !== null ? Autolinker.link(feature.properties['nome_UBS'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <th scope="row">NOMEUBS</th>\
+                        <td>' + (feature.properties['NOMEUBS'] !== null ? Autolinker.link(feature.properties['NOMEUBS'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Esfera</th>\
-                        <td>' + (feature.properties['esf_UBS'] !== null ? Autolinker.link(feature.properties['esf_UBS'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <th scope="row">ESF</th>\
+                        <td>' + (feature.properties['ESF'] !== null ? Autolinker.link(feature.properties['ESF'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Quantidade de UBSs</th>\
-                        <td>' + (feature.properties['qt_UBS'] !== null ? Autolinker.link(feature.properties['qt_UBS'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <th scope="row">area</th>\
+                        <td>' + (feature.properties['area'] !== null ? Autolinker.link(feature.properties['area'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Quantidade de famílias</th>\
-                        <td>' + (feature.properties['soma_FAMILIAS'] !== null ? Autolinker.link(feature.properties['soma_FAMILIAS'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <th scope="row">_N</th>\
+                        <td>' + (feature.properties['_N'] !== null ? Autolinker.link(feature.properties['_N'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">_CRS</th>\
+                        <td>' + (feature.properties['_CRS'] !== null ? Autolinker.link(feature.properties['_CRS'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">_STS</th>\
+                        <td>' + (feature.properties['_STS'] !== null ? Autolinker.link(feature.properties['_STS'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">_NOME</th>\
+                        <td>' + (feature.properties['_NOME'] !== null ? Autolinker.link(feature.properties['_NOME'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">_AREA-ABRA</th>\
+                        <td>' + (feature.properties['_AREA-ABRA'] !== null ? Autolinker.link(feature.properties['_AREA-ABRA'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">_AREA-ATUA</th>\
+                        <td>' + (feature.properties['_AREA-ATUA'] !== null ? Autolinker.link(feature.properties['_AREA-ATUA'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PESSATEND</th>\
+                        <td>' + (feature.properties['PESSATEND'] !== null ? Autolinker.link(feature.properties['PESSATEND'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">FAMVULN-ES</th>\
+                        <td>' + (feature.properties['FAMVULN-ES'] !== null ? Autolinker.link(feature.properties['FAMVULN-ES'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
         function style_FamliasVulnerveisporUBS_1_0(feature) {
-            if (feature.properties['soma_FAMILIAS'] >= 0.000000 && feature.properties['soma_FAMILIAS'] <= 1000.000000 ) {
+            if (feature.properties['FAMVULN-ES'] >= 0.000000 && feature.properties['FAMVULN-ES'] <= 500.000000 ) {
                 return {
                 pane: 'pane_FamliasVulnerveisporUBS_1',
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,251,197,0.45)',
+                fillColor: 'rgba(255,245,154,0.5)',
                 interactive: true,
             }
             }
-            if (feature.properties['soma_FAMILIAS'] >= 1000.000000 && feature.properties['soma_FAMILIAS'] <= 2500.000000 ) {
+            if (feature.properties['FAMVULN-ES'] >= 500.000000 && feature.properties['FAMVULN-ES'] <= 1000.000000 ) {
                 return {
                 pane: 'pane_FamliasVulnerveisporUBS_1',
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,221,162,0.45)',
+                fillColor: 'rgba(253,190,165,0.5)',
                 interactive: true,
             }
             }
-            if (feature.properties['soma_FAMILIAS'] >= 2500.000000 && feature.properties['soma_FAMILIAS'] <= 10000.000000 ) {
+            if (feature.properties['FAMVULN-ES'] >= 1000.000000 && feature.properties['FAMVULN-ES'] <= 3000.000000 ) {
                 return {
                 pane: 'pane_FamliasVulnerveisporUBS_1',
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,170,170,0.45)',
+                fillColor: 'rgba(252,112,80,0.5)',
                 interactive: true,
             }
             }
-            if (feature.properties['soma_FAMILIAS'] >= 10000.000000 && feature.properties['soma_FAMILIAS'] <= 25720.000000 ) {
+            if (feature.properties['FAMVULN-ES'] >= 3000.000000 && feature.properties['FAMVULN-ES'] <= 5000.000000 ) {
                 return {
                 pane: 'pane_FamliasVulnerveisporUBS_1',
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(157,0,0,0.45)',
+                fillColor: 'rgba(212,32,32,0.5)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['FAMVULN-ES'] >= 5000.000000 && feature.properties['FAMVULN-ES'] <= 11000.000000 ) {
+                return {
+                pane: 'pane_FamliasVulnerveisporUBS_1',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(103,0,13,0.5)',
                 interactive: true,
             }
             }
@@ -439,7 +476,7 @@
             continuousWorld : true,
             tiled: true,
             info_format: 'text/html',
-            opacity: 1,
+            opacity: 0,
             identify: false,
             attribution: '',
         });
@@ -697,7 +734,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{"Areas UBS": layer_AreasUBS_12,'<img src="legend/Centrodedistribuio_11.png" /> Centro de distribuição': layer_Centrodedistribuio_11,'<img src="legend/DoaoDriveThru_10.png" /> Doação DriveThru': layer_DoaoDriveThru_10,'<img src="legend/EntidadesParceiras_9.png" /> Entidades Parceiras': layer_EntidadesParceiras_9,"loteamento": layer_loteamento_8,'<img src="legend/UBSCovid_7.png" /> UBS-Covid': layer_UBSCovid_7,'<img src="legend/Ocupaes_6.png" /> Ocupações': layer_Ocupaes_6,"Corticos": layer_Corticos_5,"Favelas": layer_Favelas_4,'<img src="legend/PermetrosESF_3.png" /> Perímetros ESF': layer_PermetrosESF_3,"Municípios da RMSP (Região Metropolitana de São Paulo)": layer_MunicpiosdaRMSPRegioMetropolitanadeSoPaulo_2,'Famílias Vulneráveis por UBS<br /><table><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_010000.png" /></td><td> 0 - 1000 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_100025001.png" /></td><td> 1000 - 2500 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_2500100002.png" /></td><td> 2500 - 10000 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_10000257203.png" /></td><td> 10000 - 25720 </td></tr></table>': layer_FamliasVulnerveisporUBS_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
+        L.control.layers(baseMaps,{"Areas UBS": layer_AreasUBS_12,'<img src="legend/Centrodedistribuio_11.png" /> Centro de distribuição': layer_Centrodedistribuio_11,'<img src="legend/DoaoDriveThru_10.png" /> Doação DriveThru': layer_DoaoDriveThru_10,'<img src="legend/EntidadesParceiras_9.png" /> Entidades Parceiras': layer_EntidadesParceiras_9,"loteamento": layer_loteamento_8,'<img src="legend/UBSCovid_7.png" /> UBS-Covid': layer_UBSCovid_7,'<img src="legend/Ocupaes_6.png" /> Ocupações': layer_Ocupaes_6,"Corticos": layer_Corticos_5,"Favelas": layer_Favelas_4,'<img src="legend/PermetrosESF_3.png" /> Perímetros ESF': layer_PermetrosESF_3,"Municípios da RMSP (Região Metropolitana de São Paulo)": layer_MunicpiosdaRMSPRegioMetropolitanadeSoPaulo_2,'Famílias Vulneráveis por UBS<br /><table><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_05000.png" /></td><td> 0 - 500 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_50010001.png" /></td><td> 500 - 1000 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_100030002.png" /></td><td> 1000 - 3000 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_300050003.png" /></td><td> 3000 - 5000 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_5000110004.png" /></td><td> 5000 - 11000 </td></tr></table>': layer_FamliasVulnerveisporUBS_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
         setBounds();
         </script>
     </body>
