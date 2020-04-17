@@ -53,7 +53,7 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet.wms.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
-        <script src="data/familiasvulneraveisporUBSv2_1.js"></script>
+        <script src="data/FamliasVulnerveisporUBS_1.js"></script>
         <script src="data/PermetrosESF_3.js"></script>
         <script src="data/Ocupaes_7.js"></script>
         <script src="data/UBSCovid_8.js"></script>
@@ -61,7 +61,8 @@
         <script src="data/DoaoDriveThru_10.js"></script>
         <script src="data/Centrodedistribuio_11.js"></script>
         <script>
-        L.TileLayer.Grayscale = L.TileLayer.extend({
+
+L.TileLayer.Grayscale = L.TileLayer.extend({
             options: {
                 quotaRed: 21,
                 quotaGreen: 71,
@@ -114,7 +115,6 @@
             return new L.TileLayer.Grayscale(url, options);
         };
 
-
         var map = L.map('map', {
             zoomControl:true, maxZoom:18, minZoom:8
         })
@@ -137,7 +137,7 @@
         });
         layer_OpenStreetMap_0;
         map.addLayer(layer_OpenStreetMap_0);
-        function pop_familiasvulneraveisporUBSv2_1(feature, layer) {
+        function pop_FamliasVulnerveisporUBS_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">fid</th>\
@@ -176,6 +176,10 @@
                         <td>' + (feature.properties['_NOME'] !== null ? Autolinker.link(feature.properties['_NOME'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <th scope="row">_CNES</th>\
+                        <td>' + (feature.properties['_CNES'] !== null ? Autolinker.link(feature.properties['_CNES'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">_AREA-ABRA</th>\
                         <td>' + (feature.properties['_AREA-ABRA'] !== null ? Autolinker.link(feature.properties['_AREA-ABRA'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
@@ -195,10 +199,10 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_familiasvulneraveisporUBSv2_1_0(feature) {
+        function style_FamliasVulnerveisporUBS_1_0(feature) {
             if (feature.properties['FAMVULN-ES'] >= 0.000000 && feature.properties['FAMVULN-ES'] <= 500.000000 ) {
                 return {
-                pane: 'pane_familiasvulneraveisporUBSv2_1',
+                pane: 'pane_FamliasVulnerveisporUBS_1',
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
@@ -208,7 +212,7 @@
             }
             if (feature.properties['FAMVULN-ES'] >= 500.000000 && feature.properties['FAMVULN-ES'] <= 1000.000000 ) {
                 return {
-                pane: 'pane_familiasvulneraveisporUBSv2_1',
+                pane: 'pane_FamliasVulnerveisporUBS_1',
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
@@ -218,7 +222,7 @@
             }
             if (feature.properties['FAMVULN-ES'] >= 1000.000000 && feature.properties['FAMVULN-ES'] <= 3000.000000 ) {
                 return {
-                pane: 'pane_familiasvulneraveisporUBSv2_1',
+                pane: 'pane_FamliasVulnerveisporUBS_1',
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
@@ -228,7 +232,7 @@
             }
             if (feature.properties['FAMVULN-ES'] >= 3000.000000 && feature.properties['FAMVULN-ES'] <= 5000.000000 ) {
                 return {
-                pane: 'pane_familiasvulneraveisporUBSv2_1',
+                pane: 'pane_FamliasVulnerveisporUBS_1',
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
@@ -238,7 +242,7 @@
             }
             if (feature.properties['FAMVULN-ES'] >= 5000.000000 && feature.properties['FAMVULN-ES'] <= 11000.000000 ) {
                 return {
-                pane: 'pane_familiasvulneraveisporUBSv2_1',
+                pane: 'pane_FamliasVulnerveisporUBS_1',
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
@@ -247,20 +251,20 @@
             }
             }
         }
-        map.createPane('pane_familiasvulneraveisporUBSv2_1');
-        map.getPane('pane_familiasvulneraveisporUBSv2_1').style.zIndex = 401;
-        map.getPane('pane_familiasvulneraveisporUBSv2_1').style['mix-blend-mode'] = 'normal';
-        var layer_familiasvulneraveisporUBSv2_1 = new L.geoJson(json_familiasvulneraveisporUBSv2_1, {
+        map.createPane('pane_FamliasVulnerveisporUBS_1');
+        map.getPane('pane_FamliasVulnerveisporUBS_1').style.zIndex = 401;
+        map.getPane('pane_FamliasVulnerveisporUBS_1').style['mix-blend-mode'] = 'normal';
+        var layer_FamliasVulnerveisporUBS_1 = new L.geoJson(json_FamliasVulnerveisporUBS_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_familiasvulneraveisporUBSv2_1',
-            layerName: 'layer_familiasvulneraveisporUBSv2_1',
-            pane: 'pane_familiasvulneraveisporUBSv2_1',
-            onEachFeature: pop_familiasvulneraveisporUBSv2_1,
-            style: style_familiasvulneraveisporUBSv2_1_0,
+            dataVar: 'json_FamliasVulnerveisporUBS_1',
+            layerName: 'layer_FamliasVulnerveisporUBS_1',
+            pane: 'pane_FamliasVulnerveisporUBS_1',
+            onEachFeature: pop_FamliasVulnerveisporUBS_1,
+            style: style_FamliasVulnerveisporUBS_1_0,
         });
-        bounds_group.addLayer(layer_familiasvulneraveisporUBSv2_1);
-        map.addLayer(layer_familiasvulneraveisporUBSv2_1);
+        bounds_group.addLayer(layer_FamliasVulnerveisporUBS_1);
+        map.addLayer(layer_FamliasVulnerveisporUBS_1);
         var layer_MunicpiosdaRMSPRegioMetropolitanadeSoPaulo_2 = L.WMS.layer("http://wms.geosampa.prefeitura.sp.gov.br/geoserver/geoportal/wms", "area_contexto", {
             format: 'image/png',
             uppercase: true,
@@ -736,7 +740,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{"Areas UBS": layer_AreasUBS_12,'<img src="legend/Centrodedistribuio_11.png" /> Centro de distribuição': layer_Centrodedistribuio_11,'<img src="legend/DoaoDriveThru_10.png" /> Doação DriveThru': layer_DoaoDriveThru_10,'<img src="legend/EntidadesParceiras_9.png" /> Entidades Parceiras': layer_EntidadesParceiras_9,'<img src="legend/UBSCovid_8.png" /> UBS-Covid': layer_UBSCovid_8,'<img src="legend/Ocupaes_7.png" /> Ocupações': layer_Ocupaes_7,"Loteamentos": layer_Loteamentos_6,"Cortiços": layer_Cortios_5,"Favelas": layer_Favelas_4,'<img src="legend/PermetrosESF_3.png" /> Perímetros ESF': layer_PermetrosESF_3,"Municípios da RMSP (Região Metropolitana de São Paulo)": layer_MunicpiosdaRMSPRegioMetropolitanadeSoPaulo_2,'familias-vulneraveis-por-UBS-v2<br /><table><tr><td style="text-align: center;"><img src="legend/familiasvulneraveisporUBSv2_1_05000.png" /></td><td> 0 - 500 </td></tr><tr><td style="text-align: center;"><img src="legend/familiasvulneraveisporUBSv2_1_50010001.png" /></td><td> 500 - 1000 </td></tr><tr><td style="text-align: center;"><img src="legend/familiasvulneraveisporUBSv2_1_100030002.png" /></td><td> 1000 - 3000 </td></tr><tr><td style="text-align: center;"><img src="legend/familiasvulneraveisporUBSv2_1_300050003.png" /></td><td> 3000 - 5000 </td></tr><tr><td style="text-align: center;"><img src="legend/familiasvulneraveisporUBSv2_1_5000110004.png" /></td><td> 5000 - 11000 </td></tr></table>': layer_familiasvulneraveisporUBSv2_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
+        L.control.layers(baseMaps,{"Areas UBS": layer_AreasUBS_12,'<img src="legend/Centrodedistribuio_11.png" /> Centro de distribuição': layer_Centrodedistribuio_11,'<img src="legend/DoaoDriveThru_10.png" /> Doação DriveThru': layer_DoaoDriveThru_10,'<img src="legend/EntidadesParceiras_9.png" /> Entidades Parceiras': layer_EntidadesParceiras_9,'<img src="legend/UBSCovid_8.png" /> UBS-Covid': layer_UBSCovid_8,'<img src="legend/Ocupaes_7.png" /> Ocupações': layer_Ocupaes_7,"Loteamentos": layer_Loteamentos_6,"Cortiços": layer_Cortios_5,"Favelas": layer_Favelas_4,'<img src="legend/PermetrosESF_3.png" /> Perímetros ESF': layer_PermetrosESF_3,"Municípios da RMSP (Região Metropolitana de São Paulo)": layer_MunicpiosdaRMSPRegioMetropolitanadeSoPaulo_2,'Famílias Vulneráveis por UBS<br /><table><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_05000.png" /></td><td> 0 - 500 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_50010001.png" /></td><td> 500 - 1000 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_100030002.png" /></td><td> 1000 - 3000 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_300050003.png" /></td><td> 3000 - 5000 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_5000110004.png" /></td><td> 5000 - 11000 </td></tr></table>': layer_FamliasVulnerveisporUBS_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
         setBounds();
         </script>
     </body>
