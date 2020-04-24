@@ -33,7 +33,7 @@
     </head>
     <body>
         <div class="header">
-            <a href="http://geosampa.prefeitura.sp.gov.br" target="_blank">
+            <a href="https://www.spcidadesolidaria.org/" target="_blank">
                 <img src="custom/images/logo-cidade-solidaria-45.png" id="geosampa-logo"/>
             </a>
             <a href="https://github.com/geoinfo-smdu/operacao-covid">
@@ -61,8 +61,7 @@
         <script src="data/DoaoDriveThru_10.js"></script>
         <script src="data/Centrodedistribuio_11.js"></script>
         <script>
-
-L.TileLayer.Grayscale = L.TileLayer.extend({
+        L.TileLayer.Grayscale = L.TileLayer.extend({
             options: {
                 quotaRed: 21,
                 quotaGreen: 71,
@@ -319,42 +318,36 @@ L.TileLayer.Grayscale = L.TileLayer.extend({
         });
         bounds_group.addLayer(layer_PermetrosESF_3);
         map.addLayer(layer_PermetrosESF_3);
-        var layer_Favelas_4 = L.WMS.layer("http://wms.geosampa.prefeitura.sp.gov.br/geoserver/geoportal/wms", "vw_wfs_favela_geosampa", {
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
+        var layer_Loteamentos_4 = L.tileLayer('https://geosampa-tiles.s3-sa-east-1.amazonaws.com/loteamentos/{z}/{x}/{y}.png', {
+            opacity: 1.0,
             attribution: '',
+            minZoom: 8,
+            maxZoom: 18,
+            minNativeZoom: 8,
+            maxNativeZoom: 18
         });
-        map.addLayer(layer_Favelas_4);
-        var layer_Cortios_5 = L.WMS.layer("http://wms.geosampa.prefeitura.sp.gov.br/geoserver/geoportal/wms", "vw_wfs_cortico_geosampa", {
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 1,
-            identify: false,
+        layer_Loteamentos_4;
+        map.addLayer(layer_Loteamentos_4);
+        var layer_Favelas_5 = L.tileLayer('https://geosampa-tiles.s3-sa-east-1.amazonaws.com/favelas/{z}/{x}/{y}.png', {
+            opacity: 1.0,
             attribution: '',
+            minZoom: 8,
+            maxZoom: 18,
+            minNativeZoom: 8,
+            maxNativeZoom: 18
         });
-        map.addLayer(layer_Cortios_5);
-        var layer_Loteamentos_6 = L.WMS.layer("http://wms.geosampa.prefeitura.sp.gov.br/geoserver/geoportal/wms", "vw_wfs_loteamento_geosampa", {
-            format: 'image/png',
-            uppercase: true,
-            transparent: true,
-            continuousWorld : true,
-            tiled: true,
-            info_format: 'text/html',
-            opacity: 0,
-            identify: false,
+        layer_Favelas_5;
+        map.addLayer(layer_Favelas_5);
+        var layer_Corticos_6 = L.tileLayer('https://geosampa-tiles.s3-sa-east-1.amazonaws.com/corticos/{z}/{x}/{y}.png', {
+            opacity: 1.0,
             attribution: '',
+            minZoom: 8,
+            maxZoom: 18,
+            minNativeZoom: 8,
+            maxNativeZoom: 18
         });
-        map.addLayer(layer_Loteamentos_6);
+        layer_Corticos_6;
+        map.addLayer(layer_Corticos_6);
         function pop_Ocupaes_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -740,7 +733,7 @@ L.TileLayer.Grayscale = L.TileLayer.extend({
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{"Areas UBS": layer_AreasUBS_12,'<img src="legend/Centrodedistribuio_11.png" /> Centro de distribuição': layer_Centrodedistribuio_11,'<img src="legend/DoaoDriveThru_10.png" /> Doação DriveThru': layer_DoaoDriveThru_10,'<img src="legend/EntidadesParceiras_9.png" /> Entidades Parceiras': layer_EntidadesParceiras_9,'<img src="legend/UBSCovid_8.png" /> UBS-Covid': layer_UBSCovid_8,'<img src="legend/Ocupaes_7.png" /> Ocupações': layer_Ocupaes_7,"Loteamentos": layer_Loteamentos_6,"Cortiços": layer_Cortios_5,"Favelas": layer_Favelas_4,'<img src="legend/PermetrosESF_3.png" /> Perímetros ESF': layer_PermetrosESF_3,"Municípios da RMSP (Região Metropolitana de São Paulo)": layer_MunicpiosdaRMSPRegioMetropolitanadeSoPaulo_2,'Famílias Vulneráveis por UBS<br /><table><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_05000.png" /></td><td> 0 - 500 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_50010001.png" /></td><td> 500 - 1000 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_100030002.png" /></td><td> 1000 - 3000 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_300050003.png" /></td><td> 3000 - 5000 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_5000110004.png" /></td><td> 5000 - 11000 </td></tr></table>': layer_FamliasVulnerveisporUBS_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
+        L.control.layers(baseMaps,{"Areas UBS": layer_AreasUBS_12,'<img src="legend/Centrodedistribuio_11.png" /> Centro de distribuição': layer_Centrodedistribuio_11,'<img src="legend/DoaoDriveThru_10.png" /> Doação DriveThru': layer_DoaoDriveThru_10,'<img src="legend/EntidadesParceiras_9.png" /> Entidades Parceiras': layer_EntidadesParceiras_9,'<img src="legend/UBSCovid_8.png" /> UBS-Covid': layer_UBSCovid_8,'<img src="legend/Ocupaes_7.png" /> Ocupações': layer_Ocupaes_7,"Corticos": layer_Corticos_6,"Favelas": layer_Favelas_5,"Loteamentos": layer_Loteamentos_4,'<img src="legend/PermetrosESF_3.png" /> Perímetros ESF': layer_PermetrosESF_3,"Municípios da RMSP (Região Metropolitana de São Paulo)": layer_MunicpiosdaRMSPRegioMetropolitanadeSoPaulo_2,'Famílias Vulneráveis por UBS<br /><table><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_05000.png" /></td><td> 0 - 500 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_50010001.png" /></td><td> 500 - 1000 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_100030002.png" /></td><td> 1000 - 3000 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_300050003.png" /></td><td> 3000 - 5000 </td></tr><tr><td style="text-align: center;"><img src="legend/FamliasVulnerveisporUBS_1_5000110004.png" /></td><td> 5000 - 11000 </td></tr></table>': layer_FamliasVulnerveisporUBS_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
         setBounds();
         </script>
     </body>
