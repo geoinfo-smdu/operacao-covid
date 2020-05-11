@@ -53,7 +53,7 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet.wms.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
-        <script src="data/DoaoDriveThru_7.js"></script>
+        <script src="data/DoaoDriveThru_10.js"></script>
         <script src="data/Centrodedistribuio_8.js"></script>
         <script>
 
@@ -167,7 +167,7 @@
         });
         map.addLayer(layer_MunicpiosdaRMSPRegioMetropolitanadeSoPaulo_2);
 
-        function pop_DoaoDriveThru_7(feature, layer) {
+        function pop_DoaoDriveThru_10(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Nome</th>\
@@ -205,9 +205,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_DoaoDriveThru_7_0() {
+        function style_DoaoDriveThru_10_0() {
             return {
-                pane: 'pane_DoaoDriveThru_7',
+                pane: 'pane_DoaoDriveThru_10',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
@@ -217,26 +217,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_DoaoDriveThru_7');
-        map.getPane('pane_DoaoDriveThru_7').style.zIndex = 407;
-        map.getPane('pane_DoaoDriveThru_7').style['mix-blend-mode'] = 'normal';
-        var layer_DoaoDriveThru_7 = new L.geoJson(json_DoaoDriveThru_7, {
+        map.createPane('pane_DoaoDriveThru_10');
+        map.getPane('pane_DoaoDriveThru_10').style.zIndex = 410;
+        map.getPane('pane_DoaoDriveThru_10').style['mix-blend-mode'] = 'normal';
+        var layer_DoaoDriveThru_10 = new L.geoJson(json_DoaoDriveThru_10, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_DoaoDriveThru_7',
-            layerName: 'layer_DoaoDriveThru_7',
-            pane: 'pane_DoaoDriveThru_7',
-            onEachFeature: pop_DoaoDriveThru_7,
+            dataVar: 'json_DoaoDriveThru_10',
+            layerName: 'layer_DoaoDriveThru_10',
+            pane: 'pane_DoaoDriveThru_10',
+            onEachFeature: pop_DoaoDriveThru_10,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_DoaoDriveThru_7_0(feature));
+                return L.marker(latlng, style_DoaoDriveThru_10_0(feature));
             },
         });
-        bounds_group.addLayer(layer_DoaoDriveThru_7);
-        map.addLayer(layer_DoaoDriveThru_7);
+        bounds_group.addLayer(layer_DoaoDriveThru_10);
+        map.addLayer(layer_DoaoDriveThru_10);
         function pop_Centrodedistribuio_8(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
