@@ -16,30 +16,10 @@
             padding: 0;
             margin: 0;
         }
-        #map {
-            margin-top: 55px;
-        }
-        .header {
-            background-color: #000000;
-            position: fixed; /* Set the navbar to fixed position */
-            top: 0; /* Position the navbar at the top of the page */
-            width: 100%; /* Full width */
-        }
-        #geosampa-logo {
-            margin: 5px;
-        }
         </style>
         <title></title>
     </head>
     <body>
-        <div class="header">
-            <a href="https://www.spcidadesolidaria.org/" target="_blank">
-                <img src="custom/images/logo-cidade-solidaria-45.png" id="geosampa-logo"/>
-            </a>
-            <a href="https://github.com/geoinfo-smdu/operacao-covid">
-                <img src="custom/images/github-logo.png" id="geosampa-logo"/>
-            </a>
-        </div>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -55,60 +35,6 @@
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="data/DoaesEntregues_4.js"></script>
         <script>
-        
-        L.TileLayer.Grayscale = L.TileLayer.extend({
-            options: {
-                quotaRed: 21,
-                quotaGreen: 71,
-                quotaBlue: 8,
-                quotaDividerTune: 0,
-                quotaDivider: function() {
-                    return this.quotaRed + this.quotaGreen + this.quotaBlue + this.quotaDividerTune;
-                }
-            },
-
-            initialize: function (url, options) {
-                options = options || {}
-                options.crossOrigin = true;
-                L.TileLayer.prototype.initialize.call(this, url, options);
-
-                this.on('tileload', function(e) {
-                    this._makeGrayscale(e.tile);
-                });
-            },
-
-            _createTile: function () {
-                var tile = L.TileLayer.prototype._createTile.call(this);
-                tile.crossOrigin = "Anonymous";
-                return tile;
-            },
-
-            _makeGrayscale: function (img) {
-                if (img.getAttribute('data-grayscaled'))
-                    return;
-
-                        img.crossOrigin = '';
-                var canvas = document.createElement("canvas");
-                canvas.width = img.width;
-                canvas.height = img.height;
-                var ctx = canvas.getContext("2d");
-                ctx.drawImage(img, 0, 0);
-
-                var imgd = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                var pix = imgd.data;
-                for (var i = 0, n = pix.length; i < n; i += 4) {
-                                pix[i] = pix[i + 1] = pix[i + 2] = (this.options.quotaRed * pix[i] + this.options.quotaGreen * pix[i + 1] + this.options.quotaBlue * pix[i + 2]) / this.options.quotaDivider();
-                }
-                ctx.putImageData(imgd, 0, 0);
-                img.setAttribute('data-grayscaled', true);
-                img.src = canvas.toDataURL();
-            }
-        });
-
-        L.tileLayer.grayscale = function (url, options) {
-            return new L.TileLayer.Grayscale(url, options);
-        };
-
         var map = L.map('map', {
             zoomControl:true, maxZoom:18, minZoom:8
         })
@@ -121,7 +47,7 @@
                 map.fitBounds(bounds_group.getBounds());
             }
         }
-        var layer_OpenStreetMap_0 = L.tileLayer.grayscale('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        var layer_OpenStreetMap_0 = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             opacity: 0.3,
             attribution: '',
             minZoom: 8,
