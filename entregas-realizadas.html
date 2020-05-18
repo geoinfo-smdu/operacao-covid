@@ -143,26 +143,26 @@
             attribution: '',
         });
         map.addLayer(layer_MunicpiosdaRMSPRegioMetropolitanadeSoPaulo_1);
-        var layer_Favelas_2 = L.tileLayer('https://geosampa-tiles.s3-sa-east-1.amazonaws.com/favelas/{z}/{x}/{y}.png', {
-            opacity: 1.0,
-            attribution: '',
-            minZoom: 8,
-            maxZoom: 18,
-            minNativeZoom: 8,
-            maxNativeZoom: 18
-        });
-        layer_Favelas_2;
-        map.addLayer(layer_Favelas_2);
-        var layer_Corticos_3 = L.tileLayer('https://geosampa-tiles.s3-sa-east-1.amazonaws.com/corticos/{z}/{x}/{y}.png', {
-            opacity: 1.0,
-            attribution: '',
-            minZoom: 8,
-            maxZoom: 18,
-            minNativeZoom: 8,
-            maxNativeZoom: 18
-        });
-        layer_Corticos_3;
-        map.addLayer(layer_Corticos_3);
+        // var layer_Favelas_2 = L.tileLayer('https://geosampa-tiles.s3-sa-east-1.amazonaws.com/favelas/{z}/{x}/{y}.png', {
+        //     opacity: 1.0,
+        //     attribution: '',
+        //     minZoom: 8,
+        //     maxZoom: 18,
+        //     minNativeZoom: 8,
+        //     maxNativeZoom: 18
+        // });
+        // layer_Favelas_2;
+        // map.addLayer(layer_Favelas_2);
+        // var layer_Corticos_3 = L.tileLayer('https://geosampa-tiles.s3-sa-east-1.amazonaws.com/corticos/{z}/{x}/{y}.png', {
+        //     opacity: 1.0,
+        //     attribution: '',
+        //     minZoom: 8,
+        //     maxZoom: 18,
+        //     minNativeZoom: 8,
+        //     maxNativeZoom: 18
+        // });
+        // layer_Corticos_3;
+        // map.addLayer(layer_Corticos_3);
         function pop_DoaesEntregues_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -228,7 +228,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/DoaesEntregues_4.png" /> Doações Entregues': layer_DoaesEntregues_4,"Corticos": layer_Corticos_3,"Favelas": layer_Favelas_2,"Municípios da RMSP (Região Metropolitana de São Paulo)": layer_MunicpiosdaRMSPRegioMetropolitanadeSoPaulo_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/DoaesEntregues_4.png" /> Doações Entregues': layer_DoaesEntregues_4,"Municípios da RMSP (Região Metropolitana de São Paulo)": layer_MunicpiosdaRMSPRegioMetropolitanadeSoPaulo_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
         setBounds();
         </script>
     </body>
