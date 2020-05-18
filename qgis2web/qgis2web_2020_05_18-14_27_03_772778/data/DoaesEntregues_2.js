@@ -1,6 +1,6 @@
-var json_DoaesEntregues_4 = {
+var json_DoaesEntregues_2 = {
 "type": "FeatureCollection",
-"name": "DoaesEntregues_4",
+"name": "DoaesEntregues_2",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "fid": 1.0, "id": "11125", "instituica": "Sehab ", "nome_ap": "Residencial Orquídea", "endereco": "Rua Wilson Kawanami, 77" }, "geometry": { "type": "Point", "coordinates": [ -46.6366289, -23.6659058 ] } },
