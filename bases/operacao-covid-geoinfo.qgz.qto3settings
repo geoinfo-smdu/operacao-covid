@@ -1,0 +1,145 @@
+{
+  "LAYERS": [
+    {
+      "geomType": 4,
+      "layerId": "pc:visualizador-laz-web.s3-sa-east-1.amazonaws.com200625182654",
+      "name": "visualizador-laz-web.s3-sa-east-1.amazonaws.com",
+      "properties": {
+        "checkBox_BoxVisible": true,
+        "checkBox_Visible": true,
+        "colorButton_Color": "0x000000",
+        "comboBox_ColorType": "RGB",
+        "spinBox_Opacity": 100,
+        "url": "ept://visualizador-laz-web.s3-sa-east-1.amazonaws.com/"
+      },
+      "visible": true
+    },
+    {
+      "geomType": 1,
+      "layerId": "centro_de_distribuicao_5ea38edf_6016_4559_9816_a60ee05e56fc",
+      "name": "Centro de distribuição",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 1,
+      "layerId": "doacao_drive_thru_246c6fa6_ad5f_4c68_b8f2_1c6d8b351a2b",
+      "name": "Doação DriveThru",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 1,
+      "layerId": "doacoes_entregues_baf98ea3_67bf_458c_8c84_76ad896b4245",
+      "name": "Doações Entregues",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 1,
+      "layerId": "doacoes_entregues_09jun2020_d4a8cf6f_7e8a_4a54_aa8c_4462675516e0",
+      "name": "Doações Entregues",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 1,
+      "layerId": "entidades_parceiras_dac75c09_31ee_4302_bd88_8782908ba374",
+      "name": "Entidades Parceiras",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 1,
+      "layerId": "UBS_Covid_82e8b286_295b_4026_a8f6_b5ccdec4f0a6",
+      "name": "UBS-Covid",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 1,
+      "layerId": "UBS_por_concentracao_renda_e8b9f156_36d5_4198_9c88_0488e40bb935",
+      "name": "UBS - Extrema Pobreza",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 1,
+      "layerId": "ocupacoes_7a191d1e_c2a1_4c1b_b4f0_070377049190",
+      "name": "Ocupações",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "perímetros_esf_2cdde432_711f_407c_bf3c_af42b702d9eb",
+      "name": "Perímetros ESF",
+      "properties": {
+        "checkBox_Clip": true,
+        "checkBox_ExportAttrs": false,
+        "checkBox_Visible": true,
+        "comboBox_Label": null,
+        "comboBox_ObjectType": "Polygon",
+        "comboBox_altitudeMode": null,
+        "fieldExpressionWidget_altitude": "0",
+        "labelHeightWidget": {
+          "comboData": 0,
+          "comboText": "Absolute",
+          "editText": "2760",
+          "type": 6
+        },
+        "radioButton_IntersectingFeatures": true,
+        "radioButton_zValue": true,
+        "styleWidget0": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 2
+        },
+        "styleWidget1": {
+          "comboData": 1,
+          "comboText": "Feature style",
+          "editText": "",
+          "type": 5
+        },
+        "styleWidget2": {},
+        "styleWidget3": {},
+        "styleWidget4": {},
+        "styleWidget5": {}
+      },
+      "visible": false
+    },
+    {
+      "geomType": 3,
+      "layerId": "familias_vulneraveis_por_UBS_v2_a5994ca4_6b8f_477d_82c3_b266528b2e3a",
+      "name": "Famílias Vulneráveis por UBS",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 0,
+      "layerId": "FLAT",
+      "name": "Flat Plane",
+      "properties": {
+        "checkBox_Clip": false,
+        "checkBox_Frame": false,
+        "checkBox_Shading": true,
+        "checkBox_Sides": true,
+        "checkBox_Surroundings": false,
+        "checkBox_TransparentBackground": false,
+        "checkBox_Visible": true,
+        "colorButton_Color": "0x000000",
+        "comboBox_ClipLayer": "perímetros_esf_2cdde432_711f_407c_bf3c_af42b702d9eb",
+        "comboBox_TextureSize": 100,
+        "horizontalSlider_DEMSize": 2,
+        "lineEdit_ImageFile": "",
+        "radioButton_MapCanvas": true,
+        "spinBox_Opacity": 100,
+        "spinBox_Roughening": 1,
+        "spinBox_Size": 3,
+        "toolButton_SideColor": "0xccbbaa"
+      },
+      "visible": true
+    }
+  ]
+}
