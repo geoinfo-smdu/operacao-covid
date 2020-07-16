@@ -171,7 +171,7 @@ L.TileLayer.Grayscale = L.TileLayer.extend({
                     </tr>\
                     <tr>\
                         <th scope="row">Endereço</th>\
-                        <td>' + (feature.properties['endereco'] !== null ? Autolinker.link(feature.properties['endereco'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td>' + (feature.properties['ENDERECO'] !== null ? Autolinker.link(feature.properties['ENDERECO'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
