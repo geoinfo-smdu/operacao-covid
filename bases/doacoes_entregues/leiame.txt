@@ -1,0 +1,24 @@
+﻿METADADOS
+Resumo: Locais de entrega beneficiados pelo Programa Cidade Solidária
+Os pontos de entrega das doações do Programa Cidade Solidária são georreferenciados 
+a partir dos endereços de destino informado pelas entidades, instituições e secretarias
+responsáveis. 
+Arquivo tipo: Vetorial (mapa) e Texto (planilha) 
+Extensão de arquivo: GeoJSON, KML e Planilha OpenDocument (.ods)
+Escala: 1:5.000
+Atualização: periódica
+Ultima atualização: 24/09/2020
+Sistema de Referência: WGS84 Latitude, Longitude
+Responsável: Secretaria Municipal de Desenvolvimento Urbano
+
+
+DICIONÁRIO DE DADOS
+Id: código de identificação da entrega
+Instituição: responsável pela entrega. Inclui secretarias e órgãos municipais, entidades parceiras e entidades que aderiram oficialmente ao
+Programa Cidade Solidária. 
+Nome: localidade de entrega/destino das doações
+Endereço: logradouro de referência da área de entrega.
+
+
+Em caso de dúvida, entre em contato via contato@spcidadesolidaria.org
+
