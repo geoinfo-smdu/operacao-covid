@@ -55,7 +55,6 @@
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="data/DoaoDriveThru_10.js"></script>
         <script src="data/Centrodedistribuio_8.js"></script>
-        <script src="data/segAlimentar_2.js"></script>
         <script>
 
         L.TileLayer.Grayscale = L.TileLayer.extend({
@@ -320,56 +319,6 @@
         });
         bounds_group.addLayer(layer_Centrodedistribuio_8);
         map.addLayer(layer_Centrodedistribuio_8);
-        function pop_segAlimentar_2(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">cd_ident</th>\
-                        <td>' + (feature.properties['cd_ident'] !== null ? Autolinker.link(feature.properties['cd_ident'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">nm_segur</th>\
-                        <td>' + (feature.properties['nm_segur'] !== null ? Autolinker.link(feature.properties['nm_segur'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">nm_orgao</th>\
-                        <td>' + (feature.properties['nm_orgao'] !== null ? Autolinker.link(feature.properties['nm_orgao'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_segAlimentar_2_0() {
-            return {
-                pane: 'pane_segAlimentar_2',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/alimentacao-lilas.svg',
-            iconSize: [38.0, 38.0]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane_segAlimentar_2');
-        map.getPane('pane_segAlimentar_2').style.zIndex = 402;
-        map.getPane('pane_segAlimentar_2').style['mix-blend-mode'] = 'normal';
-        var layer_segAlimentar_2 = new L.geoJson(json_segAlimentar_2, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_segAlimentar_2',
-            layerName: 'layer_segAlimentar_2',
-            pane: 'pane_segAlimentar_2',
-            onEachFeature: pop_segAlimentar_2,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_segAlimentar_2_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_segAlimentar_2);
-        map.addLayer(layer_segAlimentar_2);
 
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
@@ -382,7 +331,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Centrodedistribuio_8.png" /> Centro de distribuição': layer_Centrodedistribuio_8,'<img src="legend/DoaoDriveThru_7.png" /> Doação DriveThru': layer_DoaoDriveThru_10,'<img src="legend/segAlimentar_2.png" /> segAlimentar': layer_segAlimentar_2,"Corticos": layer_Corticos_3,"Favelas": layer_Favelas_2,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Centrodedistribuio_8.png" /> Centro de distribuição': layer_Centrodedistribuio_8,'<img src="legend/DoaoDriveThru_7.png" /> Doação DriveThru': layer_DoaoDriveThru_10,"Corticos": layer_Corticos_3,"Favelas": layer_Favelas_2,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
         setBounds();
         </script>
     </body>
