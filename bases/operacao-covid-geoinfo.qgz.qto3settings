@@ -16,6 +16,13 @@
     },
     {
       "geomType": 1,
+      "layerId": "segAlimentar_a1f305f8_7b1e_430d_b4b1_e576a4df56bb",
+      "name": "segAlimentar",
+      "properties": {},
+      "visible": false
+    },
+    {
+      "geomType": 1,
       "layerId": "centro_de_distribuicao_5ea38edf_6016_4559_9816_a60ee05e56fc",
       "name": "Centro de distribuição",
       "properties": {},
