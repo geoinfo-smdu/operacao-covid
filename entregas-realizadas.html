@@ -219,12 +219,28 @@ L.TileLayer.Grayscale = L.TileLayer.extend({
                         <td>' + (feature.properties['cd_ident'] !== null ? Autolinker.link(feature.properties['cd_ident'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <th scope="row">nm_entid</th>\
+                        <td>' + (feature.properties['nm_entid'] !== null ? Autolinker.link(feature.properties['nm_entid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">nm_segur</th>\
                         <td>' + (feature.properties['nm_segur'] !== null ? Autolinker.link(feature.properties['nm_segur'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">nm_orgao</th>\
                         <td>' + (feature.properties['nm_orgao'] !== null ? Autolinker.link(feature.properties['nm_orgao'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">qt_refeica</th>\
+                        <td>' + (feature.properties['qt_refeica'] !== null ? Autolinker.link(feature.properties['qt_refeica'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">dias</th>\
+                        <td>' + (feature.properties['dias'] !== null ? Autolinker.link(feature.properties['dias'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">horario</th>\
+                        <td>' + (feature.properties['horario'] !== null ? Autolinker.link(feature.properties['horario'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
