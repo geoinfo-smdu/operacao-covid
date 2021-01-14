@@ -7,7 +7,7 @@ Arquivo tipo: Vetorial (mapa) e Texto (planilha)
 Extensão de arquivo: GeoJSON, KML e Planilha OpenDocument (.ods)
 Escala: 1:5.000
 Atualização: periódica
-Ultima atualização: 27/11/2020
+Ultima atualização: 31/12/2020
 Sistema de Referência: WGS84 Latitude, Longitude
 Responsável: Secretaria Municipal de Desenvolvimento Urbano
 
