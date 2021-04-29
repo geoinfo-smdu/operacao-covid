@@ -7,9 +7,9 @@ Arquivo tipo: Vetorial (mapa) e Texto (planilha)
 Extensão de arquivo: GeoJSON, KML e Planilha OpenDocument (.ods)
 Escala: 1:5.000
 Atualização: periódica
-Ultima atualização: 31/12/2020
+Ultima atualização: 13/04/2021
 Sistema de Referência: WGS84 Latitude, Longitude
-Responsável: Secretaria Municipal de Desenvolvimento Urbano
+Responsável: Secretaria Municipal de Direitos Humanos e Cidadania - SMDHC
 
 
 DICIONÁRIO DE DADOS
